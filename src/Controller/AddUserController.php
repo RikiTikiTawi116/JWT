@@ -29,7 +29,14 @@ class AddUserController extends AbstractController
         $user->setPhone($body->get('phone'));
         $user->setRoles($body->get('roles'));
         $user->setUsername($body->get('firstName'));
-        $user->setPassword($body->get('password'));
+                $pass = $body->get('password');
+        $hashedPassword = $passwordHasher->hashPassword(
+            $user,
+            $pass
+        );
+        $user->setPassword($hashedPassword);
+
+        $errors = $validator->validate($user);
 
         $errors = $validator->validate($user);
 
