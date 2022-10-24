@@ -1,0 +1,18 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+api_login_check:
+  path: /api/login_check
+
+user_add:
+  path: /user/add
+  controller: App\Controller\AddUserController::addUser
+
+user_update:
+    path: /user/update
+    controller: App\Controller\UpdateUserController::updateUser
+
+user_delete:
+    path: /user/delete
+    controller: App\Controller\DeleteUserController::deleteUser
